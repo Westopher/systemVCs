@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,52 +15,88 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="usingSystemViewControllers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cWY-9o-Tt3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_1791" translatesAutoresizingMaskIntoConstraints="NO" id="cWY-9o-Tt3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="7kp-EC-Ea1"/>
+                                    <constraint firstAttribute="height" constant="400" id="7kp-EC-Ea1"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yxV-Ud-bc2">
-                                <rect key="frame" x="40" y="320" width="295" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yxV-Ud-bc2">
+                                <rect key="frame" x="40" y="464" width="334" height="37"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdr-x0-P8l">
-                                        <rect key="frame" x="0.0" y="0.0" width="59" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="59.5" height="37"/>
+                                        <color key="backgroundColor" red="0.89465685149999996" green="0.89465685149999996" blue="0.89465685149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Share">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.89465685149999996" green="0.89465685149999996" blue="0.89465685149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="shareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MFP-fU-fn3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlu-WY-lNZ">
-                                        <rect key="frame" x="79" y="0.0" width="58.5" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="79.5" y="0.0" width="58" height="37"/>
+                                        <color key="backgroundColor" red="0.89465685149999996" green="0.89465685149999996" blue="0.89465685149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <state key="normal" title="Safari"/>
+                                        <connections>
+                                            <action selector="safariButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vst-mK-pIc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deZ-gX-vch">
-                                        <rect key="frame" x="157.5" y="0.0" width="59" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="157.5" y="0.0" width="82.5" height="37"/>
+                                        <color key="backgroundColor" red="0.89465685149999996" green="0.89465685149999996" blue="0.89465685149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <state key="normal" title="Camera"/>
+                                        <connections>
+                                            <action selector="cameraButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vBK-Uc-qEo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v42-qU-16f">
-                                        <rect key="frame" x="236.5" y="0.0" width="58.5" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="260" y="0.0" width="74" height="37"/>
+                                        <color key="backgroundColor" red="0.89465685149999996" green="0.89465685149999996" blue="0.89465685149999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <state key="normal" title="Email"/>
+                                        <connections>
+                                            <action selector="emailButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UBT-Qp-Nb8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="v42-qU-16f" secondAttribute="trailing" id="k6D-Fa-B5d"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yxV-Ud-bc2" firstAttribute="top" secondItem="cWY-9o-Tt3" secondAttribute="bottom" constant="20" id="7pX-hC-CAc"/>
-                            <constraint firstItem="cWY-9o-Tt3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8dr-CL-I3u"/>
                             <constraint firstItem="cWY-9o-Tt3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9AL-wX-Qjy"/>
                             <constraint firstItem="cWY-9o-Tt3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Iqe-5j-eFi"/>
                             <constraint firstItem="yxV-Ud-bc2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Oza-Qp-uOC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yxV-Ud-bc2" secondAttribute="trailing" constant="40" id="naH-pV-dbg"/>
+                            <constraint firstItem="cWY-9o-Tt3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="rMr-58-wfW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="deZ-gX-vch" id="qj0-kd-SWL"/>
+                        <outlet property="emailButton" destination="v42-qU-16f" id="RDx-rB-9MH"/>
+                        <outlet property="safariButton" destination="tlu-WY-lNZ" id="Dxt-kc-h8m"/>
+                        <outlet property="shareButton" destination="bdr-x0-P8l" id="11z-ZG-qMK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="IMG_1791" width="4032" height="3024"/>
+    </resources>
 </document>
