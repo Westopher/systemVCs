@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
     //button names for styling
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var safariButton: UIButton!
@@ -35,17 +37,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.shareButton.layer.borderColor = UIColor.blue.cgColor
-self.shareButton.layer.cornerRadius = 3
-//
-//        self.safariButton.layer.borderColor = UIColor.blue.cgColor
-self.safariButton.layer.cornerRadius = 3
-//
-//        self.cameraButton.layer.borderColor = UIColor.blue.cgColor
-self.cameraButton.layer.cornerRadius = 3
-//
-//        self.emailButton.layer.borderColor = UIColor.blue.cgColor
-self.emailButton.layer.cornerRadius = 3
+    //button styles
+    self.shareButton.layer.cornerRadius = 3
+    self.safariButton.layer.cornerRadius = 3
+    self.cameraButton.layer.cornerRadius = 3
+    self.emailButton.layer.cornerRadius = 3
         
     }
 

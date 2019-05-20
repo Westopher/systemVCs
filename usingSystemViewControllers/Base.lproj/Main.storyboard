@@ -87,6 +87,7 @@
                     <connections>
                         <outlet property="cameraButton" destination="deZ-gX-vch" id="qj0-kd-SWL"/>
                         <outlet property="emailButton" destination="v42-qU-16f" id="RDx-rB-9MH"/>
+                        <outlet property="imageView" destination="cWY-9o-Tt3" id="hiw-iZ-tQ5"/>
                         <outlet property="safariButton" destination="tlu-WY-lNZ" id="Dxt-kc-h8m"/>
                         <outlet property="shareButton" destination="bdr-x0-P8l" id="11z-ZG-qMK"/>
                     </connections>
