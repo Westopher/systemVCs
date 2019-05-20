@@ -12,6 +12,7 @@ import SafariServices
 class ViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var textField: UITextField!
     
     //button names for styling
     @IBOutlet weak var shareButton: UIButton!
@@ -26,12 +27,16 @@ class ViewController: UIViewController {
         guard let imageWithText = imageView.image else {return}
         let activityController = UIActivityViewController(activityItems: [imageWithText], applicationActivities: nil)
         activityController.popoverPresentationController?.sourceView = sender as? UIView
+        
         present(activityController, animated: true, completion: nil)
     }
     
     @IBAction func safariButtonTapped(_ sender: Any) {
-        if let url = URL(string: "http://www.google.com") {
+        guard let urlFromUser = textField.text else {return}
+        
+        if let url = URL(string: "http://\(urlFromUser)") {
             let safariViewController = SFSafariViewController(url: url)
+            
             present(safariViewController, animated: true, completion: nil)
         }
     }
