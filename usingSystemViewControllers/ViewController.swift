@@ -22,6 +22,10 @@ class ViewController: UIViewController {
     
     //button actions
     @IBAction func shareButtonTapped(_ sender: Any) {
+        guard let imageWithText = imageView.image else {return}
+        let activityController = UIActivityViewController(activityItems: [imageWithText], applicationActivities: nil)
+        activityController.popoverPresentationController?.sourceView = sender as? UIView
+        present(activityController, animated: true, completion: nil)
     }
     
     @IBAction func safariButtonTapped(_ sender: Any) {
