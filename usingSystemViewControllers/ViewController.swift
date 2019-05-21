@@ -16,7 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //button names for styling
     @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var safariButton: UIButton!
+    @IBOutlet weak var safariButton: UIButton!  // this button is titled: "Go!"
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var emailButton: UIButton!
     
@@ -41,6 +41,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
+        
         //add image picker and set delegate
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
