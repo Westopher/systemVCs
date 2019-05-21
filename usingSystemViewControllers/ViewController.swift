@@ -118,6 +118,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     self.cameraButton.layer.cornerRadius = 3
     self.emailButton.layer.cornerRadius = 3
         
+    self.shareButton.layer.borderWidth = 0.2
+    self.shareButton.layer.borderColor = UIColor.blue.cgColor
+        
+    self.safariButton.layer.borderWidth = 0.2
+    self.safariButton.layer.borderColor = UIColor.blue.cgColor
+        
+    self.cameraButton.layer.borderWidth = 0.2
+    self.cameraButton.layer.borderColor = UIColor.blue.cgColor
+        
+    self.emailButton.layer.borderWidth = 0.2
+    self.emailButton.layer.borderColor = UIColor.blue.cgColor
     }
 
 
