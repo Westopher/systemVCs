@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField: UITextField!
@@ -42,16 +42,43 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
+        //add image picker and set delegate
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        //add alert controller
         let alertController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
-        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in  print("user selected camera action")})
-        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in print("user selected Photo Library") })
-        
-        
         alertController.addAction(cancelAction)
-        alertController.addAction(cameraAction)
-        alertController.addAction(photoLibraryAction)
+        
+        
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in imagePicker.sourceType = .camera
+                self.present(imagePicker, animated: true, completion: nil)
+            })
+            alertController.addAction(cameraAction)
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in imagePicker.sourceType = .photoLibrary
+                self.present(imagePicker, animated: true, completion: nil)
+            })
+            alertController.addAction(photoLibraryAction)
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            guard let selectedImage = info[.originalImage] as? UIImage else {
+                fatalError("expected photo library, but got \(info) instead")
+            }
+            
+            imageView.image = selectedImage
+            
+            dismiss(animated: true, completion: nil)
+        }
+        
+        
+        
         alertController.popoverPresentationController?.sourceView = sender as? UIView
         
         present(alertController, animated: true, completion: nil)
