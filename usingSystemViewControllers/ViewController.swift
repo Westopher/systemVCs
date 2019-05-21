@@ -95,9 +95,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let mailComposer = MFMailComposeViewController()
         mailComposer.mailComposeDelegate = self
         
+        mailComposer.setToRecipients(["kraemerwest@gmail.com"])
+        mailComposer.setSubject("testing subject")
+        mailComposer.setMessageBody("testing body", isHTML: false)
         
+        present(mailComposer, animated: true, completion: nil)
         
-        
+    }
+    
+    func mailComposeController(_ controller:
+        MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
     }
     
     
