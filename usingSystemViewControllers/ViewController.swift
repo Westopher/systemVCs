@@ -21,7 +21,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var emailButton: UIButton!
     
     
-    
     //button actions
     @IBAction func shareButtonTapped(_ sender: Any) {
         guard let imageWithText = imageView.image else {return}
@@ -51,8 +50,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
-        
-        
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in imagePicker.sourceType = .camera
                 self.present(imagePicker, animated: true, completion: nil)
@@ -67,21 +64,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             alertController.addAction(photoLibraryAction)
         }
         
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            guard let selectedImage = info[.originalImage] as? UIImage else {
-                fatalError("expected photo library, but got \(info) instead")
-            }
-            
-            imageView.image = selectedImage
-            
-            dismiss(animated: true, completion: nil)
-        }
-        
         
         
         alertController.popoverPresentationController?.sourceView = sender as? UIView
-        
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            fatalError("expected photo library, but got \(info) instead")
+        }
+        
+        imageView.image = selectedImage
+        dismiss(animated: true, completion: nil)
     }
     
     
