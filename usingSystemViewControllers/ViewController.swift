@@ -8,8 +8,9 @@
 
 import UIKit
 import SafariServices
+import MessageUI
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField: UITextField!
@@ -32,7 +33,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func safariButtonTapped(_ sender: Any) {
         guard let urlFromUser = textField.text else {return}
-        
+
         if let url = URL(string: "http://\(urlFromUser)") {
             let safariViewController = SFSafariViewController(url: url)
             
@@ -48,9 +49,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //add alert controller
         let alertController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
+        
+        //add cancel to the alert controller
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
+        //add the camera with functionality to alert controller
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in imagePicker.sourceType = .camera
                 self.present(imagePicker, animated: true, completion: nil)
@@ -58,6 +62,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             alertController.addAction(cameraAction)
         }
         
+        //add photolibrary with functionality to alert controller
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in imagePicker.sourceType = .photoLibrary
                 self.present(imagePicker, animated: true, completion: nil)
@@ -66,11 +71,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         
-        
         alertController.popoverPresentationController?.sourceView = sender as? UIView
         present(alertController, animated: true, completion: nil)
     }
     
+    //apply picked image to view
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else {
             fatalError("expected photo library, but got \(info) instead")
@@ -82,6 +87,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func emailButtonTapped(_ sender: Any) {
+        if !MFMailComposeViewController.canSendMail() {
+            print("this device can not send mail")
+            return
+        }
+        
+        let mailComposer = MFMailComposeViewController()
+        mailComposer.mailComposeDelegate = self
+        
+        
+        
+        
     }
     
     
